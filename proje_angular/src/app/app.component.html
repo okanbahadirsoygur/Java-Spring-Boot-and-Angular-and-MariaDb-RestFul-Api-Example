@@ -1,0 +1,145 @@
+
+
+<header>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</header>
+
+
+<body>
+
+
+
+<main class="home">
+
+
+  <div class="head">
+   Spring Boot ve Angular RestFul Api
+  </div>
+
+
+  <div class="filter-container">
+
+    <section class="title-section">
+      <label class="title">Filtrele</label>
+    </section>
+
+    <section>
+      <label>Proje Adı:</label>
+      <input type="text" name="proje_adi" placeholder="Proje Adı" [(ngModel)]="form_proje_adi" (keydown.enter)="filtrele_btn()" >
+    </section>
+
+    <section>
+      <label>Proje Konusu:</label>
+      <input type="text" name="proje_konusu" placeholder="Proje Konusu" [(ngModel)]="form_proje_konusu" (keydown.enter)="filtrele_btn()">
+    </section>
+
+    <section>
+      <label>Proje Başlangıç Tarihi:</label>
+      <input type="date" name="baslangic_tarih"  pattern="\d{4}-\d{2}-\d{2}" [(ngModel)]="form_baslangic_tarih" (keydown.enter)="filtrele_btn()">
+    </section>
+
+    <section>
+      <label>Proje Bitiş Tarihi:</label>
+      <input type="date" name="bitis_tarih"  pattern="\d{4}-\d{2}-\d{2}" [(ngModel)]="form_bitis_tarih" (keydown.enter)="filtrele_btn()">
+    </section>
+
+    <section>
+      <label>Proje Yöneticisi:</label>
+      <input type="text" placeholder="Proje Yöneticisi" name="proje_yoneticisi" [(ngModel)]="form_proje_yoneticisi" (keydown.enter)="filtrele_btn()">
+    </section>
+
+    <section>
+      <label>Proje Durumu:</label>
+      <input type="text" placeholder="Proje Durumu" name="proje_durumu" [(ngModel)]="form_proje_durumu" (keydown.enter)="filtrele_btn()">
+    </section>
+
+    <section>
+      <label>Grup Sayısı:</label>
+      <input type="text" placeholder="Grup Sayısı" name="proje_grup_sayisi" [(ngModel)]="form_proje_grup_sayisi" (keydown.enter)="filtrele_btn()">
+    </section>
+
+    <section>
+      <label>Gözetmen:</label>
+      <input type="text" placeholder="Gözetmen" name="proje_gozetmen" [(ngModel)]="form_proje_gozetmen" (keydown.enter)="filtrele_btn()">
+    </section>
+
+    <section>
+      <label>Proje Puanı:</label>
+      <input type="text" placeholder="Proje Puan" name="proje_puani" [(ngModel)]="form_proje_puani" (keydown.enter)="filtrele_btn()">
+    </section>
+
+    <section>
+      <label>Kategori:</label>
+      <input type="text" placeholder="Kategori" name="proje_kategori" [(ngModel)]="form_proje_kategori" (keydown.enter)="filtrele_btn()">
+    </section>
+
+    <section class="info-section">
+      <label>Bütün filtreleri doldurmak zorunda değilsiniz.</label>
+    </section>
+
+    <section>
+      <input (mousedown)="filtrele_btn()" type="button" value="Ara">
+    </section>
+
+    <label *ngIf="projects">{{projects.length + ' Sonuç Listelendi.'}}</label>
+
+  </div>
+
+
+
+  <div class="table-container">
+
+    <table datatable [dtOptions]="dtOptions" class="table table-bordered table-striped table-hover">
+      <thead>
+      <tr>
+        <td>Proje Adı</td>
+        <td>Proje Konusu</td>
+        <td>Başlangıç Tarihi</td>
+        <td>Bitiş Tarihi</td>
+        <td>Proje Yöneticisi</td>
+        <td>Proje Durumu</td>
+        <td>Grup Sayısı</td>
+        <td>Gözetmen</td>
+        <td>Puan</td>
+        <td>Kategori</td>
+      </tr>
+      </thead>
+
+
+      <tbody>
+
+
+      <tr *ngFor="let proje of projects">
+
+        <td>{{proje.proje_adi}}</td>
+        <td>{{proje.proje_konusu}}</td>
+        <td>{{proje.proje_baslangic_tarih}}</td>
+        <td>{{proje.proje_bitis_tarih}}</td>
+        <td>{{proje.proje_yoneticisi}}</td>
+        <td>{{proje.proje_durumu}}</td>
+        <td>{{proje.proje_grup_sayisi}}</td>
+        <td>{{proje.proje_gozetmeni}}</td>
+        <td>{{proje.proje_puani}}</td>
+        <td>{{proje.proje_kategorisi}}</td>
+
+      </tr>
+
+
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+
+
+</main>
+
+
+
+</body>
+
+
+
